@@ -1,0 +1,57 @@
+{
+    "id": "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "name": "Group",
+    "description": "SCIM core resource for representing groups",
+    "schema": "urn:ietf:params:scim:schemas:core:2.0:Group",
+    "endpoint": "/Groups",
+    "attributes": [
+      {
+        "name": "id",
+        "type": "string",
+        "multiValued": false,
+        "description": "Unique identifier for the SCIM resource as defined by the Service Provider.",
+        "mutability": "readOnly",
+        "required": true,
+        "caseExact": false
+      },
+      {
+        "name": "displayName",
+        "type": "string",
+        "multiValued": false,
+        "description": "The name of the User, suitable for display",
+        "mutability": "readWrite",
+        "required": false,
+        "caseExact": false
+      },
+      {
+        "name": "members",
+        "type": "complex",
+        "multiValued": true,
+        "description": "The members of the group",
+        "mutability": "readWrite",
+        "required": false,
+        "subAttributes": [
+          {
+            "name": "value",
+            "type": "string",
+            "description": "The id of the member",
+            "mutability": "readWrite",
+            "required": false,
+            "caseExact": false
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "description": "The type of membership of the member in the group",
+            "mutability": "readOnly",
+            "required": true,
+            "caseExact": false
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "resourceType": "Schema",
+      "location": "https://cisco-32b-dev-ed.develop.my.salesforce.com/services/scim/v2/Schemas/Groupsurn:ietf:params:scim:schemas:core:2.0:Group"
+    }
+}
